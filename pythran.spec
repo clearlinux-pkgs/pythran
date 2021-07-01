@@ -4,7 +4,7 @@
 #
 Name     : pythran
 Version  : 0.9.11
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/2e/e9/bc3c16d683dbba5d34666b9861d1c1fdb07da0539655a3cf23a62e4cafa1/pythran-0.9.11.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2e/e9/bc3c16d683dbba5d34666b9861d1c1fdb07da0539655a3cf23a62e4cafa1/pythran-0.9.11.tar.gz
 Summary  : Ahead of Time compiler for numeric kernels
