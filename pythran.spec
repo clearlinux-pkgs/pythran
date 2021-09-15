@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x7B24DA8C9551659F (sguelton@redhat.com)
 #
 Name     : pythran
-Version  : 0.9.12.post1
-Release  : 4
-URL      : https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz
-Source1  : https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz.asc
+Version  : 0.10.0
+Release  : 5
+URL      : https://files.pythonhosted.org/packages/c4/92/94b344b88bb010186caa65e5730509b4a6d2b1ab59e512ea11a2cbbb36fc/pythran-0.10.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/c4/92/94b344b88bb010186caa65e5730509b4a6d2b1ab59e512ea11a2cbbb36fc/pythran-0.10.0.tar.gz
+Source1  : https://files.pythonhosted.org/packages/c4/92/94b344b88bb010186caa65e5730509b4a6d2b1ab59e512ea11a2cbbb36fc/pythran-0.10.0.tar.gz.asc
 Summary  : Ahead of Time compiler for numeric kernels
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -22,7 +22,6 @@ Requires: ply
 BuildRequires : buildreq-distutils3
 BuildRequires : numpy
 BuildRequires : ply
-BuildRequires : pytest-runner
 
 %description
 Pythran is an ahead of time compiler for a subset of the Python language, with a
@@ -77,15 +76,15 @@ python3 components for the pythran package.
 
 
 %prep
-%setup -q -n pythran-0.9.12.post1
-cd %{_builddir}/pythran-0.9.12.post1
+%setup -q -n pythran-0.10.0
+cd %{_builddir}/pythran-0.10.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1626735392
+export SOURCE_DATE_EPOCH=1631726593
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -101,8 +100,8 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pythran
-cp %{_builddir}/pythran-0.9.12.post1/LICENSE %{buildroot}/usr/share/package-licenses/pythran/6a7b1189c16283fa7f28dbdadda64777c82412a2
-cp %{_builddir}/pythran-0.9.12.post1/docs/LICENSE.rst %{buildroot}/usr/share/package-licenses/pythran/0fcc278a4a3d0341c919d405ce4a80f9c20f7c0c
+cp %{_builddir}/pythran-0.10.0/LICENSE %{buildroot}/usr/share/package-licenses/pythran/6a7b1189c16283fa7f28dbdadda64777c82412a2
+cp %{_builddir}/pythran-0.10.0/docs/LICENSE.rst %{buildroot}/usr/share/package-licenses/pythran/0fcc278a4a3d0341c919d405ce4a80f9c20f7c0c
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
